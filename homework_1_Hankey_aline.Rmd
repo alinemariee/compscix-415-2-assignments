@@ -14,9 +14,11 @@ library(mdsr)
 library(tidyverse)
 data("WorldCities")
 ```
+**Question 1:**
+
 
 This data set includes 23,018 observations and 10 variables. Some of the variable names include: (city) name, country, and population. 
-```{r}
+```{r echo=FALSE}
 glimpse(WorldCities)
 WorldCities <- head(WorldCities, 200) # 200 rows
 country_col <- WorldCities$country
@@ -25,10 +27,32 @@ unique(country_col)
 region_col <- WorldCities$region
 unique(region_col)
 ```
-**Above you'll see the unique country regions.**
+**Question 2:**
+
+Above you'll see the unique country regions.
+
+**Question 3, Part A:**
+
+Below, you'll see unique countries.
+```{r echo=FALSE}
+WorldCities %>% select(country) %>% unique()
+```
+**Question 3, Part B:**
 
 
+Question Three, Part B (**below**) features a plot examining population by city.
+```{r echo=FALSE}
+WorldCities %>% ggplot(aes(x = population)) + geom_histogram(binwidth = 1e6) + xlab ('City Population') 
+binwidth= (15)
+```
 
+**Question 4:**
+
+
+In Question 4, you'll see a tweaked version of the same plot, with updates to theme.
+```{r echo=FALSE, tidy=TRUE}
+WorldCities %>% ggplot(aes(x = population)) + geom_histogram(binwidth = 1e6) + xlab ('City Population') + ylab('Number of Cities') + theme_bw(base_size = 12) + theme_light() + ggtitle('City Population Breakdown')
+```
 
 
 
