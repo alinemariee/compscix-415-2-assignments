@@ -1,30 +1,34 @@
 ---
 title: "COMPSCIX 415.2 Homework 1"
 author: "Aline Hankey"
-date: "6/12/2018"
+date: "6/11/2018"
 output: html_document
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+My Github repository for my assignments can be found at **this URL**: https://github.com/alinemariee/compscix-415-2-assignments
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r load_packages, warning=FALSE, message=FALSE}
+library(mdsr)
+library(tidyverse)
+data("WorldCities")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+This data set includes 23,018 observations and 10 variables. Some of the variable names include: (city) name, country, and population. 
+```{r}
+glimpse(WorldCities)
+WorldCities <- head(WorldCities, 200) # 200 rows
+country_col <- WorldCities$country
+unique(country_col)
+## [1] "AD" "AE" "AF" "AG" "AI" "AL" "AM" "AO" "AR"
+region_col <- WorldCities$region
+unique(region_col)
 ```
+**Above you'll see the unique country regions.**
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
